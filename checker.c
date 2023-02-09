@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/09 19:10:12 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/09 20:21:29 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*all_args(char **str)
 
 //checks if the argument contain only spaces | tabs | new line
 
-int	all_whitespace(char *str)
+int	is_all_whitespace(char *str)
 {
 	int i;
 
@@ -54,7 +54,7 @@ int	all_whitespace(char *str)
 	while (str[i])
 	{
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
-			return(1);
+			
 		i++;
 	}
 	return(0);
@@ -69,7 +69,8 @@ int	check_args(char **str)
 	j = 0;
 	while(str[i][j])
 	{
-		if ()
+		if (is_all_whitespace(str[i]))
+			error();
 		i++;
 	}
 	return (0);
