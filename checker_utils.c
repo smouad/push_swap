@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 19:50:27 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 20:05:18 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**all_args_splited(char **str)
 		i++;
 	}
 	all_args_splited = ft_split(all_args, ' ');
-	// free(all_args);
+	free(all_args);
 	return (all_args_splited);
 }
 

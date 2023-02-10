@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 14:48:51 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 20:18:44 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ int	is_proper_digit(char **str)
 {
 	int i;
 	int j;
+	char **string;
 
-	i = 1;
-	str = all_args_splited(str);
-	while (str[i])
+	i = 0;
+	string = all_args_splited(str);
+	while (string[i])
 	{
 		j = 0;
-		while (str[i][j])
+		while (string[i][j])
 		{
-			if (str[i][0] == '-' || str[i][0] == '+')
+			if (string[i][0] == '-' || string[i][0] == '+')
 				j++;
-			if (!ft_isdigit(str[i][j]))
+			if (!ft_isdigit(string[i][j]))
 				return (0);
 			j++;
 		}

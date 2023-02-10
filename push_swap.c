@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 18:56:09 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 20:22:52 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int main(int ac, char **av)
 {
-	if (ac == 1 || is_sorted(av))
+	char **args = all_args_splited(av);
+	if (ac == 1 || is_sorted(args))
+		exit(0);
+	if (check_args(av) )
 		error();
 	// char *a = all_args(av);
 	// int *tab = tab_args(a);
