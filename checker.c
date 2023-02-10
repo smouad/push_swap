@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-//checks if the argument contain only spaces | tabs | new line
+// checks if the argument contain only spaces | tabs | new line
 
-int	is_all_whitespace(char *str)
+int is_all_whitespace(char *str)
 {
 	int i;
 
@@ -26,24 +26,24 @@ int	is_all_whitespace(char *str)
 	return (0);
 }
 
-//check if all are proper degits
+// check if all are proper degits
 
-int	is_proper_digit(char **str)
+int is_proper_digit(char **str)
 {
 	int i;
 	int j;
-	char **string;
+	char **splited_args;
 
 	i = 0;
-	string = all_args_splited(str);
-	while (string[i])
+	splited_args = all_args_splited(str);
+	while (splited_args[i])
 	{
 		j = 0;
-		while (string[i][j])
+		while (splited_args[i][j])
 		{
-			if (string[i][0] == '-' || string[i][0] == '+')
+			if (splited_args[i][0] == '-' || splited_args[i][0] == '+')
 				j++;
-			if (!ft_isdigit(string[i][j]))
+			if (!ft_isdigit(splited_args[i][j]))
 				return (0);
 			j++;
 		}
@@ -54,12 +54,12 @@ int	is_proper_digit(char **str)
 
 // check all the arguments if one of them is all white space (Error)
 
-int	check_args(char **str)
+int check_args(char **str)
 {
 	int i;
 
 	i = 1;
-	while(str[i])
+	while (str[i])
 	{
 		if (is_all_whitespace(str[i]) || !is_proper_digit(str))
 			return (1);

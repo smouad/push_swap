@@ -7,7 +7,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -rf
 
-${LIBFT}:	libft
+${LIBFT}:
 		make -C libft
 
 all: push_swap.c checker.c

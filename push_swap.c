@@ -14,21 +14,16 @@
 
 int main(int ac, char **av)
 {
-	char **args = all_args_splited(av);
-	if (ac == 1 || is_sorted(args))
+	// printf("%d", ft_atoi("12"));
+	t_list *head = list_args(av);
+	(void)head;
+	if (ac == 1 || is_sorted(av))
 		exit(0);
-	if (check_args(av) )
+	if (check_args(av))
 		error();
-	// char *a = all_args(av);
-	// int *tab = tab_args(a);
-	// int i = 0;
-	// if (!is_proper_digit(av))
-	// 	error();
-	// while (i < 3)
-	// {
-	// 	printf("%d", tab[i]);
-	// 	i++;
-	// }
-	
-	
+	while (head)
+	{
+		printf("%d", head->content);
+		head = head->next;
+	}
 }

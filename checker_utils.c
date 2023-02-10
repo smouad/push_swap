@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-//write Error on standard error and exit
+// write Error on standard error and exit
 
-void	error()
+void error()
 {
 	write(2, "Error", 5);
 	exit(0);
 }
 
-//gets each argument and puts it on a linked list
+// gets each argument and puts it on a linked list
 
-t_list	*list_args(char **str)
+t_list *list_args(char **str)
 {
 	int i;
 	int arg_count;
-	t_list *head;
+	t_list *head = NULL;
 	char **args;
 
 	arg_count = 0;
@@ -34,24 +34,24 @@ t_list	*list_args(char **str)
 	args = all_args_splited(str);
 	while (args[arg_count])
 		arg_count++;
-	while (i <= arg_count)
+	while (i < arg_count)
 	{
-		ft_lstadd_back(&head ,ft_lstnew(ft_atoi(args[i])));
+		ft_lstadd_back(&head, ft_lstnew(ft_atoi(args[i])));
 		i++;
 	}
 	return (head);
 }
 
-//gets tou all the arguments on a single string.
-//show an error message if one of the arguments is empty.
+// gets tou all the arguments on a single string.
+// show an error message if one of the arguments is empty.
 
-char	**all_args_splited(char **str)
+char **all_args_splited(char **str)
 {
 	char *all_args;
 	char **all_args_splited;
 	char *one_arg;
 	int i;
-	
+
 	i = 1;
 	all_args = malloc(1);
 	all_args[0] = '\0';
@@ -69,7 +69,9 @@ char	**all_args_splited(char **str)
 	return (all_args_splited);
 }
 
-int	is_sorted(char **str)
+// check if the list is already sorted returns 1 if it's sorted
+
+int is_sorted(char **str)
 {
 	t_list *head;
 
@@ -77,8 +79,24 @@ int	is_sorted(char **str)
 	while (head->next)
 	{
 		if (head->content > head->next->content)
-			return(1);
+			return (0);
 		head = head->next;
 	}
-	return (0);
+	return (1);
+}
+
+int check_doubles(char **str)
+{
+	t_list *head;
+
+	head = list_args(str);
+	while (head)
+	{
+		while (head->next)
+		{
+
+			head->next = head->next->next;
+		}
+		head = head->next;
+	}
 }
