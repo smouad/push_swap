@@ -6,43 +6,11 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/09 20:21:29 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 14:48:51 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//write Error on standard error and exit
-
-void	error()
-{
-	write(2, "Error", 5);
-	exit(0);
-}
-
-//gets tou all the argumments on a single string.
-//show an error message if one of the arguments is empty.
-
-char	*all_args(char **str)
-{
-	char *all_args;
-	char *one_arg;
-	int i;
-	
-	i = 1;
-	all_args = malloc(1);
-	all_args[0] = 0;
-	while (str[i])
-	{
-		if (ft_strlen(str[i]) == 0)
-			error();
-		one_arg = ft_strjoin(str[i], " ");
-		all_args = ft_strjoin(all_args, one_arg);
-		free(one_arg);
-		i++;
-	}
-	return (all_args);
-}
 
 //checks if the argument contain only spaces | tabs | new line
 
@@ -51,28 +19,50 @@ int	is_all_whitespace(char *str)
 	int i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
-			
+	while (str[i] == ' ')
 		i++;
-	}
-	return(0);
+	if (str[i] == '\0')
+		return (1);
+	return (0);
 }
 
-int	check_args(char **str)
+//check if all are proper degits
+
+int	is_proper_digit(char **str)
 {
 	int i;
 	int j;
 
 	i = 1;
-	j = 0;
-	while(str[i][j])
+	str = all_args_splited(str);
+	while (str[i])
 	{
-		if (is_all_whitespace(str[i]))
-			error();
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][0] == '-' || str[i][0] == '+')
+				j++;
+			if (!ft_isdigit(str[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+// check all the arguments if one of them is all white space (Error)
+
+int	check_args(char **str)
+{
+	int i;
+
+	i = 1;
+	while(str[i])
+	{
+		if (is_all_whitespace(str[i]) || !is_proper_digit(str))
+			return (1);
 		i++;
 	}
 	return (0);
 }
-

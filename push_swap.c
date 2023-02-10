@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/09 18:46:57 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 18:56:09 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 int main(int ac, char **av)
 {
-	(void)av;
-	if (ac == 1 || check_args(av))
+	if (ac == 1 || is_sorted(av))
 		error();
-	char **args = ft_split(all_args(av), ' ');
-	(void)args;
+	// char *a = all_args(av);
+	// int *tab = tab_args(a);
+	// int i = 0;
+	// if (!is_proper_digit(av))
+	// 	error();
+	// while (i < 3)
+	// {
+	// 	printf("%d", tab[i]);
+	// 	i++;
+	// }
+	
 	
 }

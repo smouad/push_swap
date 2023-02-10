@@ -6,13 +6,13 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 21:33:37 by msodor            #+#    #+#             */
-/*   Updated: 2022/10/26 20:20:04 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/10 19:12:20 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*ptr;
 
