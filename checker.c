@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 20:18:44 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 08:54:12 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,28 @@ int is_proper_digit(char **str)
 		i++;
 	}
 	return (1);
+}
+
+//check for doubles on the list
+
+int check_doubles(char **str)
+{
+	t_list *head;
+	int tmp;
+
+	head = list_args(str);
+	while (head)
+	{
+		tmp = head->content;
+		while (head->next)
+		{
+			if (tmp == head->next->content)
+				return (1);
+			head->next = head->next->next;
+		}
+		head = head->next;
+	}
+	return (0);
 }
 
 // check all the arguments if one of them is all white space (Error)

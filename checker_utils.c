@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 20:05:18 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 08:54:07 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,4 @@ int is_sorted(char **str)
 		head = head->next;
 	}
 	return (1);
-}
-
-int check_doubles(char **str)
-{
-	t_list *head;
-
-	head = list_args(str);
-	while (head)
-	{
-		while (head->next)
-		{
-
-			head->next = head->next->next;
-		}
-		head = head->next;
-	}
 }

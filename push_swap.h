@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 19:43:58 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 08:48:12 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	**all_args_splited(char **str);
 t_list	*list_args(char **str);
 int		is_proper_digit(char **str);
 int		is_sorted(char **str);
+int check_doubles(char **str);
 
 
 
