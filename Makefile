@@ -16,7 +16,7 @@ all: push_swap.c checker.c
 
 clean: all
 	make clean -C libft
-	${RM} push_swap
+
 fclean: all
 	make fclean -C libft
 	${RM} push_swap
