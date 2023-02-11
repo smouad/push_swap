@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 08:54:12 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 13:05:13 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,25 +49,29 @@ int is_proper_digit(char **str)
 		}
 		i++;
 	}
+	free(splited_args);
 	return (1);
 }
 
-//check for doubles on the list
+//check for doubles on the list 
+//XXXXXXXX?and if value is greter tan INT_MAX or less than INT_MIN 
 
 int check_doubles(char **str)
 {
-	t_list *head;
-	int tmp;
+	t_list	*head;
+	int		tmp;
+	t_list	*curr;
 
 	head = list_args(str);
 	while (head)
 	{
 		tmp = head->content;
-		while (head->next)
+		curr = head;
+		while (curr->next)
 		{
-			if (tmp == head->next->content)
+			if (tmp == curr->next->content)
 				return (1);
-			head->next = head->next->next;
+			curr = curr->next;
 		}
 		head = head->next;
 	}
@@ -83,9 +87,21 @@ int check_args(char **str)
 	i = 1;
 	while (str[i])
 	{
-		if (is_all_whitespace(str[i]) || !is_proper_digit(str))
+		if (is_all_whitespace(str[i]) || !is_proper_digit(str) \
+			|| check_doubles(str))
 			return (1);
 		i++;
 	}
 	return (0);
 }
+
+// int max_range(char **str)
+// {
+// 	t_list *head;
+
+// 	head = list_args(str);
+// 	while (head)
+// 	{
+// 		hea	
+// 	}
+// }

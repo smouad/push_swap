@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 01:35:13 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/10 19:12:51 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 11:06:36 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void *ft_memset(void *str, int c, size_t n);
 void *ft_memmove(void *dst, const void *src, size_t len);
 void *ft_memcpy(void *d, const void *s, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
-int ft_atoi(const char *str);
+long long ft_atoi(const char *str);
 void ft_bzero(void *str, size_t n);
 void *ft_calloc(size_t count, size_t size);
 char *ft_strdup(const char *s1);

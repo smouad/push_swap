@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 08:55:20 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 12:29:05 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int ac, char **av)
 	(void)head;
 	if (ac == 1 || is_sorted(av) )
 		exit(0);
-	if (check_args(av) || check_doubles(av))
+	if (check_args(av))
 		error();
 	while (head)
 	{

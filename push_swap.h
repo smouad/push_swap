@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 08:48:12 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 12:45:59 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 typedef struct s_stack
 {
 	t_list top;
 	int size;
 }t_stack;
+
+// typedef struct s_stacks
+// {
+// 	s_stack *stack;
+	
+// };
 
 void	error();
 int		check_args(char **str);

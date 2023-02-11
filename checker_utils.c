@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 08:54:07 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 11:50:49 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,25 @@ void error()
 }
 
 // gets each argument and puts it on a linked list
+//and if value is greter tan INT_MAX or XXXX (less than INT_MIN) XXXX
 
 t_list *list_args(char **str)
 {
-	int i;
-	int arg_count;
-	t_list *head = NULL;
-	char **args;
+	int		i;
+	int		arg_count;
+	t_list	*head;
+	char 	**args;
 
-	arg_count = 0;
+	head = NULL;
 	i = 0;
+	arg_count = 0;
 	args = all_args_splited(str);
 	while (args[arg_count])
 		arg_count++;
 	while (i < arg_count)
 	{
+		if (ft_atoi(args[i]) < INT_MIN || ft_atoi(args[i]) > INT_MAX)
+			error();
 		ft_lstadd_back(&head, ft_lstnew(ft_atoi(args[i])));
 		i++;
 	}
@@ -48,7 +52,7 @@ t_list *list_args(char **str)
 char **all_args_splited(char **str)
 {
 	char *all_args;
-	char **all_args_splited;
+	char **splited_args;
 	char *one_arg;
 	int i;
 
@@ -64,9 +68,9 @@ char **all_args_splited(char **str)
 		free(one_arg);
 		i++;
 	}
-	all_args_splited = ft_split(all_args, ' ');
+	splited_args = ft_split(all_args, ' ');
 	free(all_args);
-	return (all_args_splited);
+	return (splited_args);
 }
 
 // check if the list is already sorted returns 1 if it's sorted

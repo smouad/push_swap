@@ -6,17 +6,17 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:59:01 by msodor            #+#    #+#             */
-/*   Updated: 2022/10/13 09:46:01 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 11:06:20 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	size_t	i;
-	int		signe;
-	int		res;
+	long long	signe;
+	long long	res;
 
 	i = 0;
 	res = 0;
