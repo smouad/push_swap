@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 01:35:13 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/12 08:03:08 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 13:37:39 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
 typedef struct s_list
 {
-	int content;
-	struct s_list *next;
-} t_list;
+	int				content;
+	struct s_list	*next;
+}	t_list;
 
 int ft_isalnum(int c);
 int ft_isalpha(int c);
@@ -67,6 +68,5 @@ void ft_lstadd_back(t_list **lst, t_list *new);
 void ft_lstdelone(t_list *lst, void (*del)(int));
 void ft_lstclear(t_list **lst, void (*del)(int));
 void ft_lstiter(t_list *lst, void (*f)(int));
-t_list *ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
 
 #endif

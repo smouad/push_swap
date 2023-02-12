@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/12 08:47:23 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 17:58:49 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@
 
 typedef struct s_stack
 {
-	t_list	top;
+	t_list	*top;
 	int		size;
-}t_stack;
+} t_stack;
 
 // typedef struct s_stacks
 // {
-// 	s_stack *stack;
 	
-// };
+// } t_stack;
 
 
 //ckecker
@@ -42,6 +41,12 @@ int		is_sorted(char **str);
 int		check_doubles(char **str);
 t_list	*list_args(char **str);
 
+
+//instruction
+
+int		pop(t_stack *stack);
+void	push(t_stack *stack, int data);
+t_stack	*create_stack(void);
 
 
 
