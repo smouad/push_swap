@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 19:34:04 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 09:07:46 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ void	error(void)
 {
 	write(2, "Error", 5);
 	exit(0);
+}
+
+//free a two dimention array
+
+void	my_free(char **str)
+{
+	int i;
+	
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
 }
 
 // gets each argument and puts it on a linked list
@@ -43,6 +58,7 @@ t_list	*list_args(char **str)
 		ft_lstadd_back(&head, ft_lstnew(ft_atoi(args[i])));
 		i++;
 	}
+	my_free(args);
 	return (head);
 }
 
