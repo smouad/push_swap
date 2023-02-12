@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/12 07:53:01 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 08:07:04 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ int	is_proper_digit(char **str)
 {
 	int		i;
 	int		j;
-	char	**splited_args;
+	char	**spl_rags;
 
 	i = 0;
-	splited_args = all_args_splited(str);
-	while (splited_args[i])
+	spl_rags = all_args_splited(str);
+	while (spl_rags[i])
 	{
 		j = 0;
-		while (splited_args[i][j])
+		while (spl_rags[i][j])
 		{
-			if (splited_args[i][0] == '-' || splited_args[i][0] == '+')
+			if (spl_rags[i][0] == '-' || spl_rags[i][0] == '+')
 				j++;
-			if (!ft_isdigit(splited_args[i][j]) && (int)ft_strlen(splited_args[i]) > j)
+			if (!ft_isdigit(spl_rags[i][j]) && ft_strlen(spl_rags[i]) > j)
 				return (1);
 			j++;
 		}
 		i++;
 	}
-	free(splited_args);
+	free(spl_rags);
 	return (0);
 }
 

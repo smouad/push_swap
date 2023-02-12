@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 01:35:13 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 11:06:36 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 08:03:08 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int ft_isdigit(int c);
 int ft_isprint(int c);
 int ft_tolower(int c);
 int ft_toupper(int c);
+int ft_strlen(const char *str);
 size_t ft_strlcpy(char *dst, const char *src, size_t size);
 size_t ft_strlcat(char *dest, const char *src, size_t size);
-size_t ft_strlen(const char *str);
 char *ft_strchr(const char *str, int c);
 char *ft_strnstr(const char *s1, const char *s2, size_t len);
 char *ft_strrchr(const char *str, int c);
