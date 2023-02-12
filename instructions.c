@@ -6,17 +6,17 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:40:54 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 20:27:56 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/12 10:55:15 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
+#include "push_swap.h"
 
-// t_stack *(t_list *list)
-// {
+t_stack *(t_list *list)
+{
 	
-// }
-// void	push(int data)
-// {
-// 	top
-// }
+}
+void	push(int data)
+{
+	to
+}
