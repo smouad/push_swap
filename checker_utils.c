@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/11 11:50:49 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/11 19:34:04 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // write Error on standard error and exit
 
-void error()
+void	error(void)
 {
 	write(2, "Error", 5);
 	exit(0);
@@ -23,12 +23,12 @@ void error()
 // gets each argument and puts it on a linked list
 //and if value is greter tan INT_MAX or XXXX (less than INT_MIN) XXXX
 
-t_list *list_args(char **str)
+t_list	*list_args(char **str)
 {
 	int		i;
 	int		arg_count;
 	t_list	*head;
-	char 	**args;
+	char	**args;
 
 	head = NULL;
 	i = 0;
@@ -49,12 +49,12 @@ t_list *list_args(char **str)
 // gets tou all the arguments on a single string.
 // show an error message if one of the arguments is empty.
 
-char **all_args_splited(char **str)
+char	**all_args_splited(char **str)
 {
-	char *all_args;
-	char **splited_args;
-	char *one_arg;
-	int i;
+	char	*all_args;
+	char	**splited_args;
+	char	*one_arg;
+	int		i;
 
 	i = 1;
 	all_args = malloc(1);
@@ -75,9 +75,9 @@ char **all_args_splited(char **str)
 
 // check if the list is already sorted returns 1 if it's sorted
 
-int is_sorted(char **str)
+int	is_sorted(char **str)
 {
-	t_list *head;
+	t_list	*head;
 
 	head = list_args(str);
 	while (head->next)
