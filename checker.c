@@ -14,9 +14,9 @@
 
 // checks if the argument contain only spaces | tabs | new line
 
-int	is_all_whitespace(char *str)
+int is_all_whitespace(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] == ' ')
@@ -28,21 +28,21 @@ int	is_all_whitespace(char *str)
 
 // check if all are proper degits
 
-int	is_proper_digit(char **str)
+int is_proper_digit(char **str)
 {
-	int		i;
-	int		j;
-	char	**spl_rags;
+	int i;
+	int j;
+	char **spl_rags;
 
 	i = 0;
 	spl_rags = all_args_splited(str);
 	while (spl_rags[i])
 	{
 		j = 0;
-		if(spl_rags[i][j] == '-' || spl_rags[i][j] == '-')
+		if (spl_rags[i][j] == '-' || spl_rags[i][j] == '+')
 		{
 			j++;
-			if(ft_strlen(spl_rags[i]) == 1)
+			if (ft_strlen(spl_rags[i]) == 1)
 				return (1);
 		}
 		while (spl_rags[i][j])
@@ -57,13 +57,13 @@ int	is_proper_digit(char **str)
 	return (0);
 }
 
-//check for doubles on the list 
+// check for doubles on the list
 
-int	check_doubles(char **str)
+int check_doubles(char **str)
 {
-	t_list	*head;
-	int		tmp;
-	t_list	*curr;
+	t_list *head;
+	int tmp;
+	t_list *curr;
 
 	head = list_args(str);
 	while (head)
@@ -83,15 +83,14 @@ int	check_doubles(char **str)
 
 // check all the arguments if one of them is all white space (Error)
 
-int	check_args(char **str)
+int check_args(char **str)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while (str[i])
 	{
-		if (is_all_whitespace(str[i]) || is_proper_digit(str) \
-			|| check_doubles(str))
+		if (is_all_whitespace(str[i]) || is_proper_digit(str) || check_doubles(str))
 			return (1);
 		i++;
 	}
