@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/12 18:41:50 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/13 18:57:58 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	error(void)
 {
-	write(2, "Error", 5);
+	write(2, "Error\n", 5);
 	exit(0);
 }
 
@@ -36,7 +36,7 @@ void	my_free(char **str)
 }
 
 // gets each argument and puts it on a linked list
-//and if value is greter tan INT_MAX or XXXX (less than INT_MIN) XXXX
+//and if value is greter tan INT_MAX or less than INT_MIN
 
 t_list	*list_args(char **str)
 {
