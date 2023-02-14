@@ -7,7 +7,8 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
 HEADER = push_swap.h
-SRC = push_swap.c checker.c checker_utils.c stack_tools0.c stack_tools1.c rules.c
+SRC = push_swap.c checker.c checker_utils.c \
+		stack_tools0.c stack_tools1.c rules.c small_sort.c
 
 OBJS	= ${SRC:.c=.o}
 

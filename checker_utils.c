@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/13 18:57:58 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 15:54:42 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,8 @@ char	**all_args_splited(char **str)
 
 // check if the list is already sorted returns 1 if it's sorted
 
-int	is_sorted(char **str)
+int	is_sorted(t_list *head)
 {
-	t_list	*head;
-
-	head = list_args(str);
 	while (head->next)
 	{
 		if (head->content > head->next->content)

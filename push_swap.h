@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/13 20:17:55 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 19:22:12 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	my_free(char **str);
 int		check_args(char **str);
 char	**all_args_splited(char **str);
 int		is_proper_digit(char **str);
-int		is_sorted(char **str);
+int		is_sorted(t_list *head);
 int		check_doubles(char **str);
 t_list	*list_args(char **str);
 
@@ -56,5 +56,12 @@ void	rrx(char x, t_stacks *stacks);
 void	px(char x, t_stacks *stacks);
 void	push_ab(t_stack *stack, int data);
 
+//algo
+
+int		is_smalest(t_list *top);
+int		is_greatest(t_list *top);
+void	sort_three(t_stacks *stack);
+int		index_of_smallest(t_stack *stack);
+void	sort_five(t_stacks *stack);
 
 #endif

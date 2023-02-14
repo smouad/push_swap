@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:40:54 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 11:59:41 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 15:41:44 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push(t_stack *stack, int data)
 	t_list	*new_node;
 
 	new_node = ft_lstnew(data);
-	ft_lstadd_front(&stack->top, new_node);
+	ft_lstadd_back(&stack->top, new_node);
 	stack->size++;
 }
 

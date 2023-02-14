@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 11:59:38 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 19:33:56 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,17 @@ int main(int ac, char **av)
 	t_list *head = list_args(av);
 	if (check_args(av))
 		error();
-	if (ac == 1 || is_sorted(av) )
+	if (ac == 1 || is_sorted(head) )
 		exit(0);
 	stacks = malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		exit(0);
 	stacks->a = create_stack();
 	fill_stack(head, stacks->a);
-	stacks->b = create_stack();
 	print_stack(stacks->a);
-	px('b', stacks);
-	px('b', stacks);
-	px('a', stacks);
+	// if (ft_lstsize(stacks->a->top) == 4)
+		sort_five(stacks);
+	print_stack(stacks->a);
 	print_stack(stacks->b);
-	// rrx('a', stacks);
-	print_stack(stacks->a);
 	
 }
