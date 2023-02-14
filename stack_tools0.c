@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:40:54 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/13 19:25:03 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 11:59:41 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*create_stack(void)
 {
 	t_stack	*stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack = (t_stack*)malloc(sizeof(t_stack));
 	stack->size = 0;
 	stack->top = NULL;
 	return (stack);
@@ -56,3 +56,4 @@ int	pop(t_stack *stack)
 	stack->size--;
 	return (data);
 }
+

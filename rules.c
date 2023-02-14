@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 10:27:43 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/13 14:53:28 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 12:04:22 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	sx(char x, t_stacks *stacks)
 	if (x == 'a')
 	{
 		swap(&stacks->a);
-		printf("sa\n");
+		write(1, "sa\n", 4);
 	}
 	if (x == 'b')
 	{
 		swap(&stacks->b);
-		printf("sb\n");
+		write(1, "sb\n", 4);
 	}
 }
 
@@ -40,12 +40,12 @@ void	rx(char x, t_stacks *stacks)
 	if (x == 'a')
 	{
 		rotate(&stacks->a->top);
-		printf("ra\n");
+		write(1, "ra\n", 4);
 	}
 	if (x == 'b')
 	{
 		rotate(&stacks->b->top);
-		printf("rb\n");
+		write(1, "rb\n", 4);
 	}
 }
 
@@ -54,12 +54,12 @@ void	rrx(char x, t_stacks *stacks)
 	if (x == 'a')
 	{
 		rrotate(&stacks->a->top);
-		printf("rra\n");
+		write(1, "rra\n", 5);
 	}
 	if (x == 'b')
 	{
 		rrotate(&stacks->b->top);
-		printf("rrb\n");
+		write(1, "rrb\n", 5);
 	}
 }
 
@@ -70,13 +70,13 @@ void	px(char x, t_stacks *stacks)
 		int temp;
 		temp = pop(stacks->a);
 		push_ab(stacks->b, temp);
-		printf("pb\n");
+		write(1, "pb\n", 4);
 	}
 	if (x == 'a')
 	{
 		int temp;
 		temp = pop(stacks->b);
 		push_ab(stacks->a, temp);
-		printf("pa\n");
+		write(1, "pa\n", 4);
 	}
 }
