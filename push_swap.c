@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void print_stack(t_stack *stack)
 {
 	t_list *temp;
 
@@ -48,17 +48,17 @@ int main(int ac, char **av)
 	t_list *head = list_args(av);
 	if (check_args(av))
 		error();
-	if (ac == 1 || is_sorted(head) )
+	if (ac == 1 || is_sorted(head))
 		exit(0);
 	stacks = malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		exit(0);
 	stacks->a = create_stack();
+	stacks->b = create_stack();
 	fill_stack(head, stacks->a);
 	print_stack(stacks->a);
 	// if (ft_lstsize(stacks->a->top) == 4)
-		sort_five(stacks);
+	sort_five(stacks);
 	print_stack(stacks->a);
 	print_stack(stacks->b);
-	
 }

@@ -58,8 +58,8 @@ void	push_ab(t_stack *stack, int data);
 
 //algo
 
-int		is_smalest(t_list *top);
-int		is_greatest(t_list *top);
+int		the_smalest(t_list *top);
+int		the_greatest(t_list *top);
 void	sort_three(t_stacks *stack);
 int		index_of_smallest(t_stack *stack);
 void	sort_five(t_stacks *stack);
