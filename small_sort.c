@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:09:29 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 20:39:11 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/14 20:46:21 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	sort_five(t_stacks *stack)
 	{
 		if (index_of_smallest(stack->a) < stack->a->size / 2)
 			rx('a', stack);
-		else if (index_of_smallest(stack->a) > stack->a->size / 2)
+		if (index_of_smallest(stack->a) > stack->a->size / 2)
 			rrx('a', stack);
 	}
 	px('b', stack);
