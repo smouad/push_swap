@@ -6,27 +6,29 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:09:29 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 20:46:21 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/15 13:30:10 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_smalest(t_list *top)
+int the_smalest(t_list *top)
 {
-	int	tmp;
+	int smallest;
 
-	tmp = top->content;
+	if (!top)
+		return (0);
+	smallest = top->content;
 	while (top)
 	{
-		if (tmp > top->content)
-			tmp = top->content;
+		if (smallest > top->content)
+			smallest = top->content;
 		top = top->next;
 	}
-	return (tmp);
+	return (smallest);
 }
 
-int	is_greatest(t_list *top)
+int the_greatest(t_list *top)
 {
 	int tmp;
 
@@ -40,51 +42,65 @@ int	is_greatest(t_list *top)
 	return (tmp);
 }
 
-void	sort_three(t_stacks *stack)
+void sort_three(t_stacks *stack)
 {
 	while (is_sorted(stack->a->top) != 1)
 	{
-		if (stack->a->top->content == is_greatest(stack->a->top) \
-			&& stack->a->top->next->content == is_smalest(stack->a->top))
-			{
-				rx('a', stack);
-				return ;
-			}
-		if (stack->a->top->content == is_smalest(stack->a->top) \
-			|| stack->a->top->next->content == is_smalest(stack->a->top))
-			sx('a', stack);
-		if (stack->a->top->content == is_greatest(stack->a->top))
+		int smallest;
+		int greatest;
+
+		smallest = the_smalest(stack->a->top);
+		greatest = the_greatest(stack->a->top);
+		if (stack->a->top->content == greatest && stack->a->top->next->content == smallest)
+		{
 			rx('a', stack);
-		if (stack->a->top->next->content == is_greatest(stack->a->top))
+			return;
+		}
+		if (stack->a->top->content == smallest || stack->a->top->next->content == smallest)
+			sx('a', stack);
+		if (stack->a->top->content == greatest)
+			rx('a', stack);
+		if (stack->a->top->next->content == greatest)
 			rrx('a', stack);
 	}
 }
 
-int	index_of_smallest(t_stack *stack)
+int index_of_smallest(t_stack *stack)
 {
 	int i;
+	int smallest;
+	t_list *temp;
 
-	i = 0;
-	while (stack->top->content != is_smalest(stack->top))
+	temp = stack->top;
+	smallest = the_smalest(temp);
+	i = 1;
+	while (temp)
 	{
-		stack->top = stack->top->next;
+		if (temp->content == smallest)
+			break;
+		temp = temp->next;
 		i++;
 	}
 	return (i);
 }
 
-void	sort_five(t_stacks *stack)
+void sort_five(t_stacks *stack)
 {
-	int smallest;
+	int index;
 
-	smallest = is_smalest(stack->a->top);
-	while (stack->a->top->content != smallest)
+	while (stack->a->size > 3)
 	{
-		if (index_of_smallest(stack->a) < stack->a->size / 2)
-			rx('a', stack);
-		if (index_of_smallest(stack->a) > stack->a->size / 2)
-			rrx('a', stack);
+		index = index_of_smallest(stack->a);
+		while (stack->a->top->content != the_smalest(stack->a->top))
+		{
+			if (index <= stack->a->size / 2)
+				rx('a', stack);
+			if (index > stack->a->size / 2)
+				rrx('a', stack);
+		}
+		px('b', stack);
 	}
-	px('b', stack);
-	// px('b', stack);
+	sort_three(stack);
+	while (stack->b->size)
+		px('a', stack);
 }
