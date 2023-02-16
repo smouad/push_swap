@@ -3,7 +3,9 @@ NAME = push_swap
 LIBFT = libft/libft.a
 
 CC = cc
+
 CFLAGS = -Wall -Werror -Wextra
+
 RM = rm -rf
 
 HEADER = push_swap.h
@@ -11,23 +13,28 @@ HEADER = push_swap.h
 SRC = push_swap.c checker.c checker_utils.c \
 		stack_tools0.c stack_tools1.c rules.c small_sort.c
 
-OBJS	= ${SRC:.c=.o}
+OBJ = $(SRC:.c=.o)
 
-all: ${NAME} $(LIBFT)
+all : $(NAME)
 
+$(NAME) : $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME) 
 
-${NAME}: ${OBJS} ${HEADER}
-		@printf "$(CURSIVE)$(YELLOW) 	- Compiling $(NAME)... $(RESET)\n"
-		${CC} ${OBJS} ${LIBFT} -o ${NAME}
+$(LIBFT) :
+	make -C libft
+	make bonus -C libft
 
-$(LIBFT): 
-		make -C libft
-		make bonus -C libft
-
-clean:
+clean :
 	make clean -C libft
-	${RM} $(OBJS)
+	$(RM) *.o
 
-fclean:
+fclean : clean
 	make fclean -C libft
-	${RM} push_swap
+	$(RM) $(NAME)
+
+re : fclean all
+
+
+
+
+
