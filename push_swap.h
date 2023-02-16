@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 19:22:12 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/16 15:37:47 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stacks
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_list	*sorted_a;
 }t_stacks;
 
 //ckecker
@@ -56,12 +57,16 @@ void	rrx(char x, t_stacks *stacks);
 void	px(char x, t_stacks *stacks);
 void	push_ab(t_stack *stack, int data);
 
-//algo
+//small sort
 
 int		the_smalest(t_list *top);
 int		the_greatest(t_list *top);
 void	sort_three(t_stacks *stack);
 int		index_of_smallest(t_stack *stack);
 void	sort_five(t_stacks *stack);
+
+//big sort
+
+t_list	*sort_list(t_list *list);
 
 #endif

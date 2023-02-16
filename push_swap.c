@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/15 13:24:54 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/16 14:28:19 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,25 @@ int main(int ac, char **av)
 	stacks = malloc(sizeof(t_stacks));
 	if (stacks == NULL)
 		exit(0);
-	stacks->a = create_stack();
-	stacks->b = create_stack();
-	fill_stack(head, stacks->a);
-	print_stack(stacks->a);
+	t_list *sorted_list = sort_list(head);
+	while (sorted_list)
+	{
+		printf("s%d\n", sorted_list->content);
+		sorted_list = sorted_list->next;
+	}
+	while (head)
+	{
+		printf("%d", head->content);
+		head = head->next;
+	}
 	
-	sort_five(stacks);
-	print_stack(stacks->a);
-	print_stack(stacks->b);
-	print_stack(stacks->a);
+	// stacks->a = create_stack();
+	// stacks->b = create_stack();
+	// fill_stack(head, stacks->a);
+	// print_stack(stacks->a);
+	
+	// sort_five(stacks);
+	// print_stack(stacks->a);
+	// print_stack(stacks->b);
+	// print_stack(stacks->a);
 }
