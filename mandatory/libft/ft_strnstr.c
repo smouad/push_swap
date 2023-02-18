@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 16:38:08 by msodor            #+#    #+#             */
-/*   Updated: 2022/10/17 23:57:12 by msodor           ###   ########.fr       */
+/*   Created: 2022/10/03 12:11:58 by msodor            #+#    #+#             */
+/*   Updated: 2022/10/19 18:03:13 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t len;
-	size_t i;
-	char *s2;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	len = ft_strlen(s1);
-	s2 = malloc(sizeof(char) * (len + 1));
-	if (!s2)
-		return (0);
-	while (s1[i])
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	if (len == 0)
+		return (NULL);
+	while (haystack[i] && len > i)
 	{
-		s2[i] = s1[i];
+		j = 0;
+		while (haystack[i + j] == needle[j] && needle[j] && (i + j) < len)
+		{
+			if (needle[j + 1] == '\0')
+				return ((char *)&haystack[i]);
+			j++;
+		}
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (0);
 }
