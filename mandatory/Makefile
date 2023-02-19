@@ -10,7 +10,7 @@ RM = rm -rf
 
 HEADER = push_swap.h
 
-SRC = push_swap.c checker.c checker_utils.c \
+SRC = push_swap.c args_check0.c args_check1.c \
 		stack_tools0.c stack_tools1.c rules.c small_sort.c\
 		big_sort.c
 
@@ -34,8 +34,3 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
-
-
-
-
-

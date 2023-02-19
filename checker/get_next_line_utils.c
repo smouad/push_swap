@@ -6,11 +6,11 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:19:23 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/18 12:07:45 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/19 16:35:33 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
 int	my_strlen(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:36:20 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/17 19:08:30 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/17 19:54:56 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,31 @@
 // }
 t_list *sort_list(t_list *list)
 {
-    t_list *sorted_list;
+	t_list *sorted_list;
 	
 	sorted_list = ft_lstnew(list->content);
-    list = list->next;
-    while (list != NULL)
-    {
-        t_list *curr = sorted_list;
-        t_list *prev = NULL;
-        while (curr != NULL && list->content > curr->content)
-        {
-            prev = curr;
-            curr = curr->next;
-        }
-        if (prev == NULL)
-        {
-            ft_lstadd_front(&sorted_list, ft_lstnew(list->content));
-        }
-        else
-        {
-            prev->next = ft_lstnew(list->content);
-            prev->next->next = curr;
-        }
-        list = list->next;
-    }
-    return sorted_list;
+	list = list->next;
+	while (list != NULL)
+	{
+		t_list *curr = sorted_list;
+		t_list *prev = NULL;
+		while (curr != NULL && list->content > curr->content)
+		{
+			prev = curr;
+			curr = curr->next;
+		}
+		if (prev == NULL)
+		{
+			ft_lstadd_front(&sorted_list, ft_lstnew(list->content));
+		}
+		else
+		{
+			prev->next = ft_lstnew(list->content);
+			prev->next->next = curr;
+		}
+		list = list->next;
+	}
+	return sorted_list;
 }
 
 int	content_index(int content, t_list *a_sorted)

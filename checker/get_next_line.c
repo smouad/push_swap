@@ -6,11 +6,11 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:48:25 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/18 12:09:21 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/19 16:35:45 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
 char	*get_first(char *stat)
 {
