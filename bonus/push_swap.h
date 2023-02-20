@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/19 16:22:45 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:10:16 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 typedef struct s_stack
 {
@@ -73,5 +75,20 @@ void push_to_b(t_stacks *stack);
 void big_sort(t_stacks *stack);
 int index_of_bigest(t_stack *stack);
 int content_index(int content, t_list *a_sorted);
+
+// checker
+
+void apply_rule(t_stacks *stack);
+
+// GNL
+
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 29
+#endif
+
+int my_strlen(char *str);
+int my_strchr(char *str, char c);
+char *my_strjoin(char *s1, char *s2);
+char *get_next_line(int fd);
 
 #endif
