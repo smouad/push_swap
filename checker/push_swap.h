@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/19 16:34:28 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/20 11:10:16 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		content_index(int content, t_list *a_sorted);
 
 //checker
 
-void	aplly_rule(t_stacks *stack);
+void	apply_rule(t_stacks *stack);
 
 //GNL
 
