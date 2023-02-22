@@ -26,12 +26,12 @@ BOBJ = $(BSRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) 
 
 bonus : $(BNAME)
 
 $(BNAME) : $(BOBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(LIBFT) $(BOBJ) -o $(BNAME)
+	$(CC) $(CFLAGS) $(BOBJ) $(LIBFT) -o $(BNAME)
 
 $(LIBFT) :
 	make -C libft

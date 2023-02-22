@@ -53,6 +53,7 @@ int is_proper_digit(char **str)
 		}
 		i++;
 	}
+	my_free(spl_rags);
 	free(spl_rags);
 	return (0);
 }
@@ -78,6 +79,7 @@ int check_doubles(char **str)
 		}
 		head = head->next;
 	}
+	// free_list(head);
 	return (0);
 }
 
