@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   args_check1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:22:04 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/12 19:15:36 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:18:23 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_all_whitespace(char *str)
+void	free_list(t_list *head)
 {
-	int i;
+	t_list	*tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+}
+
+int	is_all_whitespace(char *str)
+{
+	int	i;
 
 	i = 0;
 	while (str[i] == ' ')
@@ -24,11 +36,11 @@ int is_all_whitespace(char *str)
 	return (0);
 }
 
-int is_proper_digit(char **str)
+int	is_proper_digit(char **str)
 {
-	int i;
-	int j;
-	char **spl_rags;
+	int		i;
+	int		j;
+	char	**spl_rags;
 
 	i = 0;
 	spl_rags = all_args_splited(str);
@@ -43,9 +55,8 @@ int is_proper_digit(char **str)
 		}
 		while (spl_rags[i][j])
 		{
-			if (!ft_isdigit(spl_rags[i][j]))
+			if (!ft_isdigit(spl_rags[i][j++]))
 				return (1);
-			j++;
 		}
 		free(spl_rags[i]);
 		i++;
@@ -54,10 +65,10 @@ int is_proper_digit(char **str)
 	return (0);
 }
 
-int check_doubles(t_list *head)
+int	check_doubles(t_list *head)
 {
-	int tmp;
-	t_list *curr;
+	int		tmp;
+	t_list	*curr;
 
 	while (head)
 	{
@@ -74,9 +85,9 @@ int check_doubles(t_list *head)
 	return (0);
 }
 
-int check_args(char **str)
+int	check_args(char **str)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (str[i])

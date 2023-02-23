@@ -6,15 +6,15 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:09:29 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/15 13:30:10 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:29:18 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int the_smalest(t_list *top)
+int	the_smalest(t_list *top)
 {
-	int smallest;
+	int	smallest;
 
 	if (!top)
 		return (0);
@@ -28,9 +28,9 @@ int the_smalest(t_list *top)
 	return (smallest);
 }
 
-int the_greatest(t_list *top)
+int	the_greatest(t_list *top)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = top->content;
 	while (top)
@@ -42,21 +42,23 @@ int the_greatest(t_list *top)
 	return (tmp);
 }
 
-void sort_three(t_stacks *stack)
+void	sort_three(t_stacks *stack)
 {
+	int	smallest;
+	int	greatest;
+
 	while (is_sorted(stack->a->top) != 1)
 	{
-		int smallest;
-		int greatest;
-
 		smallest = the_smalest(stack->a->top);
 		greatest = the_greatest(stack->a->top);
-		if (stack->a->top->content == greatest && stack->a->top->next->content == smallest)
+		if (stack->a->top->content == greatest \
+			&& stack->a->top->next->content == smallest)
 		{
 			rx('a', stack);
-			return;
+			return ;
 		}
-		if (stack->a->top->content == smallest || stack->a->top->next->content == smallest)
+		if (stack->a->top->content == smallest \
+			|| stack->a->top->next->content == smallest)
 			sx('a', stack);
 		if (stack->a->top->content == greatest)
 			rx('a', stack);
@@ -65,11 +67,11 @@ void sort_three(t_stacks *stack)
 	}
 }
 
-int index_of_smallest(t_stack *stack)
+int	index_of_smallest(t_stack *stack)
 {
-	int i;
-	int smallest;
-	t_list *temp;
+	int		i;
+	int		smallest;
+	t_list	*temp;
 
 	temp = stack->top;
 	smallest = the_smalest(temp);
@@ -77,16 +79,16 @@ int index_of_smallest(t_stack *stack)
 	while (temp)
 	{
 		if (temp->content == smallest)
-			break;
+			break ;
 		temp = temp->next;
 		i++;
 	}
 	return (i);
 }
 
-void sort_five(t_stacks *stack)
+void	sort_five(t_stacks *stack)
 {
-	int index;
+	int	index;
 
 	while (stack->a->size > 3)
 	{

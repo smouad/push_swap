@@ -6,15 +6,15 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:40:54 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 15:41:44 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:30:06 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *create_stack(void)
+t_stack	*create_stack(void)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	stack->size = 0;
@@ -22,10 +22,10 @@ t_stack *create_stack(void)
 	return (stack);
 }
 
-void fill_stack(t_list *list, t_stack *stack)
+void	fill_stack(t_list *list, t_stack *stack)
 {
 	if (!list)
-		return;
+		return ;
 	while (list)
 	{
 		push(stack, list->content);
@@ -33,19 +33,19 @@ void fill_stack(t_list *list, t_stack *stack)
 	}
 }
 
-void push(t_stack *stack, int data)
+void	push(t_stack *stack, int data)
 {
-	t_list *new_node;
+	t_list	*new_node;
 
 	new_node = ft_lstnew(data);
 	ft_lstadd_back(&stack->top, new_node);
 	stack->size++;
 }
 
-int pop(t_stack *stack)
+int	pop(t_stack *stack)
 {
-	t_list *head;
-	int data;
+	t_list	*head;
+	int		data;
 
 	if (stack->size == 0)
 		return (0);

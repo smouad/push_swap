@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   args_check0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:33:44 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/14 15:54:42 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:14:05 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error(void)
+void	error(void)
 {
 	write(2, "Error\n", 5);
 	exit(0);
 }
 
-void free_list(t_list *head)
+t_list	*list_args(char **str)
 {
-	t_list *tmp;
-
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-}
-
-t_list *list_args(char **str)
-{
-	int i;
-	int arg_count;
-	t_list *head;
-	t_list *new_node;
-	char **args;
+	int		i;
+	int		arg_count;
+	t_list	*head;
+	t_list	*new_node;
+	char	**args;
 
 	head = NULL;
 	i = 0;
@@ -57,12 +45,12 @@ t_list *list_args(char **str)
 	return (head);
 }
 
-char *my_strjoin(char *s1, char *s2)
+char	*my_strjoin(char *s1, char *s2)
 {
-	char *str;
-	int len;
-	int i;
-	int j;
+	char	*str;
+	int		len;
+	int		i;
+	int		j;
 
 	if (s1 == NULL)
 	{
@@ -85,12 +73,12 @@ char *my_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char **all_args_splited(char **str)
+char	**all_args_splited(char **str)
 {
-	char *all_args;
-	char **splited_args;
-	char *one_arg;
-	int i;
+	char	*all_args;
+	char	**splited_args;
+	char	*one_arg;
+	int		i;
 
 	i = 1;
 	all_args = malloc(1);
@@ -109,7 +97,7 @@ char **all_args_splited(char **str)
 	return (splited_args);
 }
 
-int is_sorted(t_list *head)
+int	is_sorted(t_list *head)
 {
 	while (head->next)
 	{
