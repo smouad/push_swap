@@ -35,12 +35,13 @@ typedef struct s_stacks
 // args check
 
 void error();
+void free_list(t_list *head);
 void my_free(char **str);
 int check_args(char **str);
 char **all_args_splited(char **str);
 int is_proper_digit(char **str);
 int is_sorted(t_list *head);
-int check_doubles(char **str);
+int check_doubles(t_list *head);
 t_list *list_args(char **str);
 
 // rules && rules utils

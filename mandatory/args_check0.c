@@ -12,27 +12,10 @@
 
 #include "push_swap.h"
 
-// write Error on standard error and exit
-
 void error(void)
 {
 	write(2, "Error\n", 5);
 	exit(0);
-}
-
-// free a two dimention array
-
-void my_free(char **str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		str[i] = NULL;
-		i++;
-	}
 }
 
 void free_list(t_list *head)
@@ -46,9 +29,6 @@ void free_list(t_list *head)
 		free(tmp);
 	}
 }
-
-// gets each argument and puts it on a linked list
-// and if value is greter tan INT_MAX or less than INT_MIN
 
 t_list *list_args(char **str)
 {
@@ -70,16 +50,13 @@ t_list *list_args(char **str)
 			error();
 		new_node = ft_lstnew(ft_atoi(args[i]));
 		ft_lstadd_back(&head, new_node);
-		free(new_node);
+		free(args[i]);
 		i++;
 	}
-	my_free(args);
 	free(args);
 	return (head);
 }
 
-// gets tou all the arguments on a single string.
-// show an error message if one of the arguments is empty.
 char *my_strjoin(char *s1, char *s2)
 {
 	char *str;
@@ -131,8 +108,6 @@ char **all_args_splited(char **str)
 	free(all_args);
 	return (splited_args);
 }
-
-// check if the list is already sorted returns 1 if it's sorted
 
 int is_sorted(t_list *head)
 {

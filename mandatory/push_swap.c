@@ -12,45 +12,32 @@
 
 #include "push_swap.h"
 
-void print_stack(t_stack *stack)
-{
-	t_list *temp;
-
-	temp = stack->top;
-	while (temp)
-	{
-		printf("%d\n", temp->content);
-		temp = temp->next;
-	}
-	printf("a\n\n");
-}
-
 int main(int ac, char **av)
 {
-	// t_stacks *stacks = NULL;
+	t_stacks *stacks;
+	stacks = malloc(sizeof(t_stacks));
 	t_list *head = list_args(av);
-	if (check_args(av))
+	if (check_args(av) || check_doubles(head))
 		error();
 	if (ac == 1 || is_sorted(head))
 		exit(0);
-	// stacks = malloc(sizeof(t_stacks));
-	// if (stacks == NULL)
-	// 	exit(0);
-	// t_list *sorted_list = sort_list(head);
-	// while (sorted_list)
-	// {
-	// 	printf("s%d\n", sorted_list->content);
-	// 	sorted_list = sorted_list->next;
-	// }
-	// while (head)
-	// {
-	// 	printf("%d", head->content);
-	// 	head = head->next;
-	// }
-	// stacks->a = create_stack();
-	// stacks->b = create_stack();
-	// stacks->a_sorted = sort_list(head);
-	// // sort_list(head);
-	// fill_stack(head, stacks->a);
-	// big_sort(stacks);
+	stacks->a = create_stack();
+	stacks->b = create_stack();
+	stacks->a_sorted = sort_list(head);
+	fill_stack(head, stacks->a);
+	if (stacks->a->size <= 3)
+		sort_three(stacks);
+	if (stacks->a->size > 5)
+		big_sort(stacks);
+	if (stacks->a->size <= 5)
+		sort_five(stacks);
+	free_list(head);
+	free_list(stacks->a->top);
+	free_list(stacks->b->top);
+	free_list(stacks->a_sorted);
+	free(stacks->a);
+	free(stacks->b);
+	free(stacks);
+	while (1)
+		;
 }

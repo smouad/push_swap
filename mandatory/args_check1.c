@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-// checks if the argument contain only spaces | tabs | new line
-
 int is_all_whitespace(char *str)
 {
 	int i;
@@ -25,8 +23,6 @@ int is_all_whitespace(char *str)
 		return (1);
 	return (0);
 }
-
-// check if all are proper degits
 
 int is_proper_digit(char **str)
 {
@@ -51,22 +47,18 @@ int is_proper_digit(char **str)
 				return (1);
 			j++;
 		}
+		free(spl_rags[i]);
 		i++;
 	}
-	my_free(spl_rags);
 	free(spl_rags);
 	return (0);
 }
 
-// check for doubles on the list
-
-int check_doubles(char **str)
+int check_doubles(t_list *head)
 {
-	t_list *head;
 	int tmp;
 	t_list *curr;
 
-	head = list_args(str);
 	while (head)
 	{
 		tmp = head->content;
@@ -79,11 +71,8 @@ int check_doubles(char **str)
 		}
 		head = head->next;
 	}
-	// free_list(head);
 	return (0);
 }
-
-// check all the arguments if one of them is all white space (Error)
 
 int check_args(char **str)
 {
@@ -92,7 +81,7 @@ int check_args(char **str)
 	i = 1;
 	while (str[i])
 	{
-		if (is_all_whitespace(str[i]) || is_proper_digit(str) || check_doubles(str))
+		if (is_all_whitespace(str[i]) || is_proper_digit(str))
 			return (1);
 		i++;
 	}
