@@ -6,20 +6,20 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:14:48 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/23 19:50:41 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:20 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "../libft/libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <limits.h>
-#include <unistd.h>
-#include <fcntl.h>
+# include "../libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <limits.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 typedef struct s_stack
 {
@@ -78,9 +78,9 @@ int		content_index(int content, t_list *a_sorted);
 
 //GNL
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 29
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 29
+# endif
 
 int		my_strlen(char *str);
 int		my_strchr(char *str, char c);

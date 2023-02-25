@@ -6,46 +6,55 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:36:20 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/23 18:23:47 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:43:45 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*sort_list(t_list *list)
+t_list	*list_coppy(t_list *list)
 {
-	t_list	*sorted_list;
-
-	sorted_list = ft_lstnew(list->content);
+	t_list *list_coppy;
+	
+	list_coppy = ft_lstnew(list->content);
 	list = list->next;
-	while (list != NULL)
+	while (list)
 	{
-		t_list *curr = sorted_list;
-		t_list *prev = NULL;
-		while (curr != NULL && list->content > curr->content)
-		{
-			prev = curr;
-			curr = curr->next;
-		}
-		if (prev == NULL)
-		{
-			ft_lstadd_front(&sorted_list, ft_lstnew(list->content));
-		}
-		else
-		{
-			prev->next = ft_lstnew(list->content);
-			prev->next->next = curr;
-		}
+		ft_lstadd_back(&list_coppy, ft_lstnew(list->content));
 		list = list->next;
 	}
-	return (sorted_list);
+	return (list_coppy);
+}
+
+t_list	*sort_list(t_list *list)
+{
+	t_list	*list_cpy;
+	t_list	*tmp;
+	int		swap;
+
+	list_cpy = list_coppy(list);
+	tmp = list_cpy;
+	while (list_cpy->next)
+	{
+		if (list_cpy->content > list_cpy->next->content)
+		{
+			swap = list_cpy->content;
+			list_cpy->content = list_cpy->next->content;
+			list_cpy->next->content = swap;
+			list_cpy = tmp;
+		}
+		else
+			list_cpy = list_cpy->next;
+	}
+	list_cpy = tmp;
+	return (list_cpy);
 }
 
 int	content_index(int content, t_list *a_sorted)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (a_sorted && a_sorted->content != content)
 	{
 		a_sorted = a_sorted->next;
@@ -62,7 +71,7 @@ int	index_of_bigest(t_stack *stack)
 
 	temp = stack->top;
 	bigest = the_greatest(temp);
-	i = 1;
+	i = 0;
 	while (temp)
 	{
 		if (temp->content == bigest)
@@ -105,9 +114,9 @@ void	big_sort(t_stacks *stack)
 	int	max;
 
 	min = 0;
-	max = 16;
+	max = 15;
 	if (stack->a->size > 200)
-		max = 34;
+		max = 46;
 	push_to_b(stack, min, max);
 	while (stack->b->size)
 	{

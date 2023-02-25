@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 10:27:43 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/23 18:55:35 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/24 18:50:52 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ void	rrx(char x, t_stacks *stacks)
 {
 	if (x == 'a')
 	{
-		rrotate(&stacks->a->top);;
+		rrotate(&stacks->a->top);
 	}
 	if (x == 'b')
 	{
-		rrotate(&stacks->b->top);;
+		rrotate(&stacks->b->top);
 	}
 	if (x == 'r')
 	{
 		rrotate(&stacks->a->top);
-		rrotate(&stacks->b->top);;
+		rrotate(&stacks->b->top);
 	}
 }
 

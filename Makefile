@@ -16,7 +16,7 @@ SRC =  $(addprefix mandatory/, args_check0.c args_check1.c \
 
 BSRC = $(addprefix bonus/, args_check0.c args_check1.c \
 		stack_tools0.c stack_tools1.c \
-		rules.c checker.c checker_utils.c \
+		rules.c checker.c \
 		get_next_line.c get_next_line_utils.c)
 
 OBJ = $(SRC:.c=.o)
