@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:25:03 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/26 13:40:47 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/26 15:53:53 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (check_args(av))
 		error();
-	if (ac == 1 || is_sorted(head))
+	if (ac == 1)
 		exit(0);
 	stack->a = create_stack();
 	stack->b = create_stack();
