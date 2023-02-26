@@ -6,7 +6,7 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:31 by msodor            #+#    #+#             */
-/*   Updated: 2023/02/25 18:03:27 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/26 13:39:14 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ void	free_stacks(t_stacks *stacks)
 int	main(int ac, char **av)
 {
 	t_stacks	*stacks;
+	t_list		*head;
+
 	stacks = malloc(sizeof(t_stacks));
-	t_list *head = list_args(av);
+	head = list_args(av);
 	if (check_args(av) || check_doubles(head))
 		error();
 	if (ac == 1 || is_sorted(head))
-	{
-		printf("gezza");
 		exit(0);
-	}
 	stacks->a = create_stack();
 	stacks->b = create_stack();
 	stacks->a_sorted = sort_list(head);

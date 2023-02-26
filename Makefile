@@ -12,7 +12,7 @@ RM = rm -rf
 
 SRC =  $(addprefix mandatory/, args_check0.c args_check1.c \
 		stack_tools0.c stack_tools1.c rules.c \
-		small_sort.c big_sort.c push_swap.c)
+		small_sort.c big_sort.c big_sort_utils.c push_swap.c)
 
 BSRC = $(addprefix bonus/, args_check0.c args_check1.c \
 		stack_tools0.c stack_tools1.c \

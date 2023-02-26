@@ -6,16 +6,16 @@
 /*   By: msodor <msodor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 22:40:12 by msodor            #+#    #+#             */
-/*   Updated: 2022/10/27 17:53:16 by msodor           ###   ########.fr       */
+/*   Updated: 2023/02/26 13:45:52 by msodor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(int))
+void	ft_lstdelone(t_list *lst, void (*del)(int))
 {
 	if (!lst || !del)
-		return;
+		return ;
 	(*del)(lst->content);
 	free(lst);
 }
