@@ -71,7 +71,7 @@ int	main(int ac, char **av)
 	stack->b = create_stack();
 	fill_stack(head, stack->a);
 	apply_rule(stack);
-	if (is_sorted(stack->a->top))
+	if (is_sorted(stack->a->top) && stack->b->size == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
