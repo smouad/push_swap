@@ -46,7 +46,7 @@ void	big_sort(t_stacks *stack)
 	min = 0;
 	max = 15;
 	if (stack->a->size > 200)
-		max = 30;
+		max = 40;
 	push_to_b(stack, min, max);
 	while (stack->b->size)
 	{
